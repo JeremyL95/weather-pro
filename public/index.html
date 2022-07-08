@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="weather, forecast, app, celsius" s />
+    <meta name=" author" content="Jeremy Erik Leong" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Pro</title>
+    <link rel="icon" href="icon/weather.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header><i class="fas fa-arrow-left btn-back"></i>Weather Pro</header>
+
+        <form id="form" action="/weather" method="post">
+            <p class="info-text"></p>
+            <input type="text" placeholder="Enter city name" spellcheck="false" class="input-field" required>
+            <button type="submit" class="btn-search">Search</button>
+        </form>
+
+        <div class="weather-info">
+            <div class="weather-location"></div>
+            <div class="date"></div>
+            <img src="" alt="" class="weather-icon">
+            <div class="weather-content">
+                <h3 class="weather-degree"></h3>
+                <div class="weather-description"></div>
+            </div>
+        </div>
+        <div class="weather-details">
+            <div class="humidity">
+                <span class="iconify" data-icon="wi:humidity" data-width="32" data-height="32"></span>
+                <p class="weather-humidity"></p>
+                <span class="unit">Humidity</span>
+            </div>
+            <div class="hr"></div>
+            <div class="wind">
+                <span class="iconify" data-icon="mi:wind" data-width="32" data-height="32"></span>
+                <p class="weather-wind"></p>
+                <span class="unit">Wind</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

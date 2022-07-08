@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+@mixin flexCenter($display, $justify, $align, $direction) {
+    display: $display;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+$primaryColor: #4267b2;
+$secondaryColor: #898f9c;
+$default: #26292b;
+$text: #fff;
+$success: #89be89;
+$error: #f8d7da;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "montserrat", san-serif;
+}
+
+body {
+    @include flexCenter(flex, center, center, row);
+    height: 100vh;
+    background-color: $primaryColor;
+}
+
+.container {
+    width: 400px;
+    border-radius: 8px;
+    background-color: $default;
+    padding: 1em;
+
+    header {
+        display: flex;
+        padding: 1em;
+        font-weight: 700;
+        font-size: 1.25em;
+        color: $primaryColor;
+
+        .btn-back {
+            cursor: pointer;
+            margin-right: 1em;
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+
+    #form {
+        margin: 1em;
+
+        .info-text {
+            text-align: center;
+            padding: 1em;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .success {
+            display: block;
+            color: darken($success, 30%);
+            background-color: $success;
+            border: 1px solid success;
+        }
+
+        .error {
+            display: block;
+            color: darken($error, 30%);
+            background-color: $error;
+            border: 1px solid $error;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1em;
+            margin-block: 1em;
+            outline: none;
+            border: 1px solid darken($text, 15%);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1em;
+
+            &:is(:focus, :valid) {
+                border: 1px solid darken($primaryColor, 5%);
+            }
+        }
+
+        .btn-search {
+            width: 100%;
+            padding: 1em;
+            font-size: 1em;
+            background-color: $primaryColor;
+            color: $text;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($primaryColor, 10%);
+            }
+        }
+
+        &.active {
+            display: none;
+        }
+    }
+
+    .weather-info {
+        @include flexCenter(none, center, center, column);
+        margin-bottom: 1.5em;
+
+        .weather-location {
+            margin-block: 1em 0.5em;
+            color: $text;
+            i {
+                margin-right: 0.5em;
+            }
+        }
+
+        .date {
+            color: $secondaryColor;
+            font-size: 0.875em;
+        }
+
+        .weather-icon {
+            width: 120px;
+            height: 120px;
+            margin-block: 0.5em;
+        }
+
+        .weather-content {
+            text-align: center;
+
+            .weather-degree {
+                font-size: 3em;
+                color: $text;
+                font-weight: 700;
+            }
+
+            .weather-description {
+                margin-block: 0.25em;
+                color: $secondaryColor;
+                font-size: 0.875em;
+            }
+        }
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    .weather-details {
+        @include flexCenter(none, space-around, center, row);
+        background-color: darken($secondaryColor, 30%);
+        padding: 1em 0.5em;
+        margin: 1em;
+        text-align: center;
+        display: none;
+        border-radius: 8px;
+
+        .hr {
+            border: 1px solid $secondaryColor;
+            height: 8vh;
+        }
+
+        .humidity,
+        .wind {
+            @include flexCenter(flex, center, center, column);
+            width: 80px;
+            color: $text;
+
+            .iconify {
+                margin-right: 0.5em;
+                color: $primaryColor;
+            }
+
+            .unit {
+                font-size: 0.875em;
+                color: $secondaryColor;
+            }
+        }
+
+        &.active {
+            display: flex;
+        }
+    }
+}
